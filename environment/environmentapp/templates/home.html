@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/terrahacksproject/environment/environmentapp/static/home.css">
+    {% load static %}
+    <link rel="stylesheet" href="{%  static 'home.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Not Eco Friendly? | Start Now</title>
 </head>
@@ -14,22 +15,25 @@
     <!-- Navbar -->
     <div class="cover">
         <video class="background-video" autoplay loop muted plays-inline>
-            <source src="hackathon video.mp4"video/mp4">
+            <source src="{%  static 'images/home_background.mp4' %}" type="video/mp4">
         </video>
         <section class="navbar-container">
             <nav>
                 <div class="nav-left">
-                    <a href="">Home</a>
+                    <a href="{% url 'home' %}">Home</a>
                 </div>
                 <div class="nav-right">
-                    <a href="">About</a>
-                    <a href="">Log out</a>
-                    <a href="">Log in</a>
-                    <a href="">Sign in</a>
-                    <a href=""><i class="fa-solid fa-user"></i></a>
+                    <a href="{% url 'about' %}">About</a>
+                    <a href="{% url 'logout' %}">Log out</a>
+                    <a href="{% url 'login' %}">Log in</a>
+                    <a href="{% url 'signup' %}">Sign in</a>
+                    <a href="{% url 'profile' %}"><i class="fa-solid fa-user"></i></a>
                 </div>
             </nav>
          </section>
+         <div class="title">
+            <h1>GreenPulse</h1>
+         </div>
     </div>
 
      <!-- Hero -->
@@ -48,7 +52,7 @@
             <div class="hero-card">
                 <h1>About</h1>
                 <p>Learn more about us, our values, and our mission. We follow a strict rule set for the lowest environmental impact</p>
-                <button class="btn">Take me</button>
+                <a class="btn" href="{% url 'about' %}">Take me</a>
             </div>
         </div>
       </section>
