@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <title>Leaderboard</title>
-    <link rel="stylesheet" href="leaderboard.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'leaderboard.css' %}">
 </head>
 <body>
 
@@ -14,14 +15,14 @@
         <section class="navbar-container">
             <nav>
                 <div class="nav-left">
-                    <a href="index.html">Home</a>
+                    <a href="{% url 'home' %}">Home</a>
                 </div>
                 <div class="nav-right">
-                    <a href="about.html">About</a>
-                    <a href="">Log out</a>
-                    <a href="">Log in</a>
-                    <a href="">Sign in</a>
-                    <a href=""><i class="fa-solid fa-user"></i></a>
+                    <a href="{% url 'about' %}">About</a>
+                    <a href="{% url 'logout' %}">Log out</a>
+                    <a href="{% url 'login' %}">Log in</a>
+                    <a href="{% url 'signup' %}">Sign in</a>
+                    <a href="{% url 'profile' %}"><i class="fa-solid fa-user"></i></a>
                 </div>
             </nav>
          </section>
@@ -42,26 +43,12 @@
                 </tr>
             </thead>
             <tbody>
+                {% for profile in profiles %}
                 <tr>
-                    <td>2sleezy</td>
-                    <td>1500</td>
+                    <td>{{profile.user.username}}</td>
+                    <td>{{profile.score}}</td>
                 </tr>
-                <tr>
-                    <td>2keezy</td>
-                    <td>234</td>
-                </tr>
-                <tr>
-                    <td>Huzu</td>
-                    <td>69</td>
-                </tr>
-                <tr>
-                    <td>shabby</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td>mdude</td>
-                    <td>1100</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
