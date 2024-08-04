@@ -119,6 +119,7 @@ nav a:hover {
     font-size: 16px;
     background-color: black;
     color: white;
+    text-align: center;
 }
 
 .hero-card .btn, .btn-reverse {
