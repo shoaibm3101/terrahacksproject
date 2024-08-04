@@ -2,6 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{%  static 'signup.css' %}">
     <title>Document</title>
 </head>
 <body>
@@ -20,6 +22,18 @@
 
         {{form.password2.label}}
         {{form.password2}}
+
+        <label>Score</label>
+        <input id="score" name="score" required>
+
+        <ul>
+            {% for question_obj in questions %}
+
+            <li>{{question_obj.question}}</li>
+            
+            {% endfor %}
+        </ul>
+        
 
         {{form.errors}}
         <button type="submit">Submit</button>
